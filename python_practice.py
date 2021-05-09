@@ -23,3 +23,13 @@ def f1_score_function(*, tp, fp, tn, fn):
 def mcc(*, tp, tn, fp, fn):
   mcc_score = (tp*tn-fp*fn)/((tp+fp)*(tp+fn)*(tn+fp)*(tn+fn))**.5
   return mcc_score
+
+def column_stats(*, table, column):
+  the_mean = table[column].mean()
+  the_sd = table[column].std()
+  the_max = table[column].max()
+  the_min = table[column].min()
+  the_range = (table[column].max() - table[column].min())
+  the_stats = [the_mean, the_sd, the_min, the_max, the_range]
+
+  return the_stats
